@@ -91,3 +91,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+
+/// Note: You can create variables to simplify complext tasks in coding like below.
+let ad = UIApplication.shared.delegate as! AppDelegate
+let context = ad.persistentContainer.viewContext
+
+
+
