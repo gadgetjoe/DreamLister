@@ -22,19 +22,63 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+//        generateTestData()
+        attemptFetch()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        confirgureCell(cell: cell, indexPath: indexPath as NSIndexPath)
+        return cell
+    }
+    
+    func confirgureCell(cell: ItemCell, indexPath: NSIndexPath) {
+        
+        let item = controller.object(at: indexPath as IndexPath)
+        cell.configureCell(item: item)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let objs = controller.fetchedObjects , objs.count > 0 {
+            
+            let item = objs[indexPath.row]
+            performSegue(withIdentifier: "ItemDetailsVC", sender: item)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ItemDetailsVC" {
+            if let destination = segue.destination as? ItemDetailsVC {
+                if let item = sender as? Item {
+                    destination.itemToEdit = item 
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = controller.sections {
+            
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+        
         return 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if let sections = controller.sections {
+            return sections.count
+        }
+        
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
     func attemptFetch() {
@@ -44,6 +88,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         fetchRequest.sortDescriptors = [dateSort]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        controller.delegate = self
+        
+        self.controller = controller
         
         do {
             
@@ -85,7 +132,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         case.update:
             if let indexPath = indexPath {
                 let cell = tableView.cellForRow(at: indexPath) as! ItemCell
-                // update the cell data.
+                confirgureCell(cell: cell, indexPath: indexPath as NSIndexPath)
             }
             break
         case.move:
@@ -99,25 +146,28 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
     }
     
+    func generateTestData() {
+        
+        let item = Item(context: context)
+        item.title = "iPhone 7"
+        item.price = 1800
+        item.details = "I can't wait to get the new touch bar"
+        
+        let item2 = Item(context: context)
+        item2.title = "Bose Headphones"
+        item2.price = 300
+        item2.details = "Noise Cancel"
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        let item3 = Item(context: context)
+        item3.title = "Tesla Model S"
+        item3.price = 110000
+        item3.details = "Nice Car"
+        
+        ad.saveContext()
+    }
 
     
     
-    
-    
-
 }
 
 

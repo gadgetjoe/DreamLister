@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5903A5C51E11A92E0067CD3F /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903A5C41E11A92E0067CD3F /* ItemDetailsVC.swift */; };
+		5903A5C71E11ABD40067CD3F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903A5C61E11ABD40067CD3F /* CustomTextField.swift */; };
 		597CE22F1E0D758900F18555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597CE22E1E0D758900F18555 /* AppDelegate.swift */; };
 		597CE2311E0D758900F18555 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597CE2301E0D758900F18555 /* MainVC.swift */; };
 		597CE2341E0D758900F18555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 597CE2321E0D758900F18555 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5903A5C41E11A92E0067CD3F /* ItemDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailsVC.swift; sourceTree = "<group>"; };
+		5903A5C61E11ABD40067CD3F /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = "../../../../Documents/Udemy/IOS 10 and Swift 3/DreamLister Assets/CustomTextField.swift"; sourceTree = "<group>"; };
 		597CE22B1E0D758900F18555 /* DreamLister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamLister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		597CE22E1E0D758900F18555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		597CE2301E0D758900F18555 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				597CE2301E0D758900F18555 /* MainVC.swift */,
+				5903A5C41E11A92E0067CD3F /* ItemDetailsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 			children = (
 				597CE2671E0D8A4C00F18555 /* MaterialView.swift */,
 				597CE2691E0D8D7600F18555 /* ItemCell.swift */,
+				5903A5C61E11ABD40067CD3F /* CustomTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -210,11 +216,13 @@
 				597CE2311E0D758900F18555 /* MainVC.swift in Sources */,
 				597CE2661E0D815000F18555 /* Store+CoreDataProperties.swift in Sources */,
 				597CE2601E0D815000F18555 /* Image+CoreDataProperties.swift in Sources */,
+				5903A5C51E11A92E0067CD3F /* ItemDetailsVC.swift in Sources */,
 				597CE2631E0D815000F18555 /* ItemType+CoreDataClass.swift in Sources */,
 				597CE22F1E0D758900F18555 /* AppDelegate.swift in Sources */,
 				597CE2651E0D815000F18555 /* Store+CoreDataClass.swift in Sources */,
 				597CE2371E0D758900F18555 /* DreamLister.xcdatamodeld in Sources */,
 				597CE25F1E0D815000F18555 /* Image+CoreDataClass.swift in Sources */,
+				5903A5C71E11ABD40067CD3F /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +384,7 @@
 				597CE2421E0D758900F18555 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
